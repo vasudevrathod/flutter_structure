@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_structure/config/env_config.dart';
+import 'package:flutter_structure/core/common/app_fonts.dart';
 import 'package:flutter_structure/l10n/app_localizations.dart';
 import '../providers/dashboard_provider.dart';
 
@@ -26,7 +27,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "${AppLocalizations.of(context)!.helloWorld} ${EnvConfig.apiUrl}",
+          "${AppLocalizations.of(context)!.helloWorld} ${EnvConfig.appName}",
+          style: TextStyle().amaranth.bold,
         ),
       ),
       body: RefreshIndicator(

@@ -214,3 +214,9 @@ flutter build ios --dart-define-from-file=env/production.json
 | Release Mode | flutter run --release --dart-define-from-file=env/production.json |
 | Build APK | flutter build apk --dart-define-from-file=env/production.json |
 | Build iOS | flutter build ios --dart-define-from-file=env/production.json |
+
+
+## Next Task
+
+1. Font Implementation
+2. 

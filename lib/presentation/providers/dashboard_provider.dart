@@ -68,7 +68,7 @@ class DashboardNotifier extends StateNotifier<DashboardUIState> {
 }
 
 // Dependency Injection Providers
-final dioProvider = Provider((ref) => DioClient().dio);
+final dioProvider = Provider((ref) => DioClient().getDio());
 
 final dashboardRepoProvider = Provider<DashboardRepository>((ref) {
   return DashboardRepositoryImpl(ref.watch(dioProvider));
