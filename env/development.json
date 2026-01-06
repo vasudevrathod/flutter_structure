@@ -1,0 +1,5 @@
+{
+  "API_URL": "https://dev.api.com",
+  "APP_NAME": "MyApp Dev",
+  "IS_PRODUCTION": false
+}

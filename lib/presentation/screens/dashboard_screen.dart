@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_structure/config/env_config.dart';
+import 'package:flutter_structure/l10n/app_localizations.dart';
 import '../providers/dashboard_provider.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
@@ -22,7 +24,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     final state = ref.watch(dashboardProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Dashboard Clean Arch")),
+      appBar: AppBar(
+        title: Text(
+          "${AppLocalizations.of(context)!.helloWorld} ${EnvConfig.apiUrl}",
+        ),
+      ),
       body: RefreshIndicator(
         onRefresh: () => ref.read(dashboardProvider.notifier).fetchAllData(),
         child: SingleChildScrollView(
@@ -54,10 +60,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   }
 
   Widget _buildUserList(DashboardUIState state) {
-    if (state.userState.isLoading)
+    if (state.userState.isLoading) {
       return const Center(child: CircularProgressIndicator());
-    if (state.userState.isFailure)
+    }
+    if (state.userState.isFailure) {
       return Center(child: Text(state.userState.errorMessage!));
+    }
 
     final users = state.userState.data ?? [];
     return SizedBox(
@@ -76,10 +84,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   }
 
   Widget _buildPostList(DashboardUIState state) {
-    if (state.postState.isLoading)
+    if (state.postState.isLoading) {
       return const Center(child: CircularProgressIndicator());
-    if (state.postState.isFailure)
+    }
+    if (state.postState.isFailure) {
       return Center(child: Text(state.postState.errorMessage!));
+    }
 
     final posts = state.postState.data ?? [];
     return ListView.builder(

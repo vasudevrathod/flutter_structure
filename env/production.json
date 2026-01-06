@@ -1,0 +1,5 @@
+{
+  "API_URL": "https://api.com",
+  "APP_NAME": "MyApp",
+  "IS_PRODUCTION": true
+}
